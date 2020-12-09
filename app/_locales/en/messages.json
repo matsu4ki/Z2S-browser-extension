@@ -4,11 +4,11 @@
     "description": "The name of the application"
   },
   "appShortName": {
-    "message": "Z二S-extension",
+    "message": "Genies",
     "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
   },
   "appDescription": {
-    "message": "This extension send message to slack",
+    "message": "This extension send message to slack from ZAC",
     "description": "The description of the application"
   },
   "browserActionTitle": {

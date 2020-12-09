@@ -1,0 +1,18 @@
+{
+  "appName": {
+    "message": "Z二S browser extension",
+    "description": "拡張機能の名前です。"
+  },
+  "appShortName": {
+    "message": "ジニーズ",
+    "description": "拡張機能の省略した名称です。"
+  },
+  "appDescription": {
+    "message": "ZACからSlackへメッセージを送信します",
+    "description": "zacから、webhook機能を介してSlackへ通知を送信します。"
+  },
+  "browserActionTitle": {
+    "message": "Z二S browser extension",
+    "description": "Actionボタンのタイトル名です。"
+  }
+}
