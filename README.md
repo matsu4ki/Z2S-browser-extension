@@ -1,6 +1,6 @@
-# slack zac extention
+# Z二S browser extension
 
-This extention send start/end work message to slack
+This extension send start/end work message to slack
 
 ## Installation
 

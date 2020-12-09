@@ -1,8 +1,8 @@
 {
-  "name": "slack-zac-extention",
+  "name": "z2s-browser-extension",
   "private": true,
   "version": "0.0.0",
-  "description": "This extention send message to slack",
+  "description": "This extension send message to slack from zac",
   "scripts": {
     "start": "npm run dev:chrome",
     "build": "npm run build:chrome",
