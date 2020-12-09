@@ -16,12 +16,12 @@ const setSettingsFromStorage = async (element: HTMLFormElement) => {
     'iconURL',
     'embeddedDataOptions'
   ]);
-  element['webhookURL'].value = webhookURL;
-  element['channel'].value = channel;
+  element['webhookURL'].value = webhookURL || '';
+  element['channel'].value = channel || '';
   element['message'].value = message || '拡張機能からの送信 at {{{now}}}}';
-  element['webhookName'].value = webhookName;
-  element['iconURL'].value = iconURL;
-  element['timeFormat'].value = embeddedDataOptions.timeFormat;
+  element['webhookName'].value = webhookName || '';
+  element['iconURL'].value = iconURL || '';
+  element['timeFormat'].value = embeddedDataOptions.timeFormat || '';
 
 };
 
