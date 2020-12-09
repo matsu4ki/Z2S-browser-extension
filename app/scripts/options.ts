@@ -21,7 +21,7 @@ const setSettingsFromStorage = async (element: HTMLFormElement) => {
   element['message'].value = message || '{{name}} が　拡張機能から\n {{{now}}}} \nに送信しています。';
   element['webhookName'].value = webhookName || '';
   element['iconURL'].value = iconURL || '';
-  element['timeFormat'].value = embeddedDataOptions.timeFormat || '';
+  element['timeFormat'].value = embeddedDataOptions?.timeFormat || '';
 
 };
 
