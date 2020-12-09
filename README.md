@@ -1,11 +1,6 @@
-# !!注意!!
-
-SlackのWebhook URLをそのまま載せているので、
-Publicにする際は、消すこと。
-
 # slack zac extention
 
-This extention send message to slack
+This extention send start/end work message to slack
 
 ## Installation
 
