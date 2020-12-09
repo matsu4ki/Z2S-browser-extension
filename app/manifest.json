@@ -20,8 +20,7 @@
       "19": "images/icon-19.png",
       "38": "images/icon-38.png"
     },
-    "default_title": "__MSG_browserActionTitle__",
-    "default_popup": "pages/popup.html"
+    "default_title": "__MSG_browserActionTitle__"
   },
   "content_scripts": [
     {
@@ -29,10 +28,10 @@
         "https://*.zac.ai/*"
       ],
       "css": [
-        "styles/contentscript.css"
+        "styles/contentScript.css"
       ],
       "js": [
-        "scripts/contentscript.js"
+        "scripts/contentScript.js"
       ],
       "run_at": "document_end",
       "all_frames": true

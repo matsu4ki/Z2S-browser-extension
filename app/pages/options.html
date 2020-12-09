@@ -22,9 +22,18 @@
       </label>
     </p>
     <p>
-      <label>送信メッセージ<br>
-        {{now}}で現在時刻、{{name}}で自身の名前を送信できます。<br>
+      <lab>送信メッセージ<br>
+        {{{now}}}で現在時刻、{{name}}で自身の名前を表示できます。<br>
         <textarea rows="5" cols="30" maxlength="255" name="message" required></textarea>
+      </lab
+      el>
+    </p>
+
+    <h2>オプション</h2>
+    <p>
+      <label>現在時刻({{{now}}})のフォーマット指定(<a href="https://day.js.org/docs/en/display/format" rel="noopener" target="_blank">dayjs基準</a>)<br>
+        指定がない場合は[YYYY/MM/DD HH:mm:ss dddd]で表示されます。<br>
+        <input type="text" size="30" maxlength="255" name="timeFormat" placeholder="YYYY年MM月DD日">
       </label>
     </p>
 

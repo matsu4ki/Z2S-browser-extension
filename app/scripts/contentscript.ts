@@ -1,6 +1,8 @@
 import {observe} from 'selector-observer';
 import Button from './Button';
-import {sendMessageToSlack} from './sendToSlack';
+import { sendMessageToSlack } from './sendToSlack';
+import Config from './Config';
+import {EmbeddedData} from './Interfaces';
 
 const findNameFromDisplayOrInput = () => {
   const name = (() => {
@@ -22,12 +24,18 @@ const findNameFromDisplayOrInput = () => {
 const setStartButton: Function = (startWorkButtonArea: HTMLElement) => {
   startWorkButtonArea.style.flex = '1';
   const startWorkButton = <HTMLButtonElement>Button.cloneNode(true);
-  startWorkButton.addEventListener('click', () => {
+  startWorkButton.addEventListener('click', async () => {
     console.log('clicked 出勤');
-    const userName: string = findNameFromDisplayOrInput();
-    sendMessageToSlack();
-    startWorkButton.setAttribute('disabled', 'disabled');
-    startWorkButton.style.cssText += 'border-color:#ddd!important;background-color:#ddd!important;-webkit-box-shadow:none!important;box-shadow:none!important;color:#888!important;cursor:default!important';
+    const embeddedData: EmbeddedData = {
+      now: '',
+      name: findNameFromDisplayOrInput()
+    }
+    await sendMessageToSlack(embeddedData);
+
+    if (Config.contentScript.isButtonDisabledWhenClick) {
+      startWorkButton.setAttribute('disabled', 'disabled');
+      startWorkButton.style.cssText += 'border-color:#ddd!important;background-color:#ddd!important;-webkit-box-shadow:none!important;box-shadow:none!important;color:#888!important;cursor:default!important';
+    }
   });
   startWorkButtonArea.appendChild(startWorkButton);
 };
@@ -35,17 +43,21 @@ const setStartButton: Function = (startWorkButtonArea: HTMLElement) => {
 const setEndButton: Function = (endWorkButtonArea: HTMLElement) => {
   endWorkButtonArea.style.flex = '1';
   const endWorkButton = <HTMLButtonElement>Button.cloneNode(true);
-  endWorkButton.addEventListener('click', () => {
-    console.log('clicked 退勤');
-    const userName: string = findNameFromDisplayOrInput();
-    sendMessageToSlack();
-    endWorkButton.setAttribute('disabled', 'disabled');
-    endWorkButton.style.cssText += 'border-color:#ddd!important;background-color:#ddd!important;-webkit-box-shadow:none!important;box-shadow:none!important;color:#888!important;cursor:default!important';
+  endWorkButton.addEventListener('click', async () => {
+    const embeddedData: EmbeddedData = {
+      now: '',
+      name: findNameFromDisplayOrInput()
+    }
+    await sendMessageToSlack(embeddedData);
+
+    if (Config.contentScript.isButtonDisabledWhenClick) {
+      endWorkButton.setAttribute('disabled', 'disabled');
+      endWorkButton.style.cssText += 'border-color:#ddd!important;background-color:#ddd!important;-webkit-box-shadow:none!important;box-shadow:none!important;color:#888!important;cursor:default!important';
+    }
   });
   endWorkButtonArea.appendChild(endWorkButton);
 };
 
-// 登録
 const accountMenu = 'body > zac-app > div > zac-root-page > zac-global-header-container > div.global-header.ng-star-inserted > div > div > div > div.global-account > zac-global-account-container > div:nth-child(1)';
 observe(accountMenu, {
   add(el) {
@@ -53,9 +65,9 @@ observe(accountMenu, {
     observe(startWorkButtonArea, {
       add(el) {
         const startWorkButton = el.getElementsByTagName('button')[0];
-        // if (startWorkButton.style.visibility === 'visible') {
+        if (startWorkButton.style.visibility === 'visible' || Config.contentScript.shouldDisplayButton) {
           setStartButton(el);
-        // }
+        }
       }
     });
 
@@ -63,9 +75,9 @@ observe(accountMenu, {
     observe(endWorkButtonArea, {
       add(el) {
         const endWorkButton = el.getElementsByTagName('button')[0];
-        // if (endWorkButton.style.visibility === 'visible') {
+        if (endWorkButton.style.visibility === 'visible' || Config.contentScript.shouldDisplayButton) {
           setEndButton(el);
-        // }
+        }
       }
     });
   }

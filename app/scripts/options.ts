@@ -7,18 +7,22 @@ const setSettingsFromStorage = async (element: HTMLFormElement) => {
     message,
     webhookName,
     iconURL,
+    embeddedDataOptions
   } = await browser.storage.local.get([
     'webhookURL',
     'channel',
     'message',
     'webhookName',
     'iconURL',
+    'embeddedDataOptions'
   ]);
   element['webhookURL'].value = webhookURL;
   element['channel'].value = channel;
-  element['message'].value = message;
+  element['message'].value = message || '拡張機能からの送信 at {{{now}}}}';
   element['webhookName'].value = webhookName;
   element['iconURL'].value = iconURL;
+  element['timeFormat'].value = embeddedDataOptions.timeFormat;
+
 };
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -33,7 +37,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
       message: formElement['message'].value,
       webhookName: formElement['webhookName'].value,
       iconURL: formElement['iconURL'].value,
+      embeddedDataOptions: {timeFormat: formElement['timeFormat'].value},
     });
     alert('設定を保存しました');
+  });
+
+  document.getElementById('google-login')?.addEventListener('click', e => {
+    browser.identity.getRedirectURL();
   });
 });

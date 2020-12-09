@@ -1,0 +1,14 @@
+{
+  "development": {
+    "contentScript": {
+      "shouldDisplayButton": true,
+      "isButtonDisabledWhenClick": false
+    }
+  },
+  "production": {
+    "contentScript": {
+      "shouldDisplayButton": false,
+      "isButtonDisabledWhenClick": true
+    }
+  }
+}
