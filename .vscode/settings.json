@@ -2,5 +2,7 @@
   "commentTranslate.targetLanguage": "ja",
   "cSpell.words": [
     "webextension"
-  ]
+  ],
+  "editor.formatOnType": true,
+  "typescript.locale": "ja"
 }

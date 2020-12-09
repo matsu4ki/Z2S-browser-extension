@@ -10,26 +10,39 @@
 <body>
   <form id="settings">
     <h2>必須入力項目</h2>
-    <p><label>Webhook URL<br>
+    <p>
+      <label>Webhook URL<br>
         <input type="url" size="100" maxlength="255" name="webhookURL" required
           placeholder="https://hooks.slack.com/services/xxxxxxxxx/yyyyyyyyyyy/zzzzzzzzzzzzzzzzzzzzzzzz">
-      </label></p>
-    <p><label>Slack チャンネル名<br>
+      </label>
+    </p>
+    <p>
+      <label>Slack チャンネル名<br>
         <input type="text" size="30" maxlength="255" name="channel" required placeholder="#random">
-      </label></p>
-    <p><label>送信メッセージ<br>
-        <input type="text" size="30" maxlength="255" name="message" required value="拡張機能からの送信です">
-      </label></p>
+      </label>
+    </p>
+    <p>
+      <label>送信メッセージ<br>
+        {{now}}で現在時刻、{{name}}で自身の名前を送信できます。<br>
+        <textarea rows="5" cols="30" maxlength="255" name="message" required></textarea>
+      </label>
+    </p>
 
     <h2>上書き項目</h2>
-    <p><label>WebHook名<br>
+    <p>
+      <label>WebHook名<br>
         <input type="text" size="30" maxlength="255" name="webhookName">
-      </label></p>
-    <p><label>アイコン(URL)<br>
+      </label>
+    </p>
+    <p>
+      <label>アイコン(URL)<br>
         <input type="text" size="30" maxlength="255" name="iconURL">
-      </label></p>
+      </label>
+    </p>
     <br>
-    <p><button id="save" type="submit">保存する</button></p>
+    <p>
+      <button id="save" type="submit">保存する</button>
+    </p>
   </form>
 
   <script src="../scripts/options.js"></script>

@@ -26,6 +26,7 @@
   "devDependencies": {
     "@types/chrome": "^0.x.x",
     "@types/jquery": "^3.5.4",
+    "@types/mustache": "^4.1.0",
     "babel-cli": "6.x.x",
     "babel-core": "6.x.x",
     "babel-eslint": "^10.x.x",
@@ -54,7 +55,6 @@
     "require-dir": "1.x.x",
     "standard": "14.x.x",
     "ts-loader": "^6.x.x",
-    "tslint": "^6.x.x",
     "typescript": "^3.9.7",
     "vinyl-named": "1.x.x",
     "webextension-polyfill": "^0.7.0",
@@ -66,6 +66,8 @@
   "dependencies": {
     "babel-register": "^6.26.0",
     "dayjs": "^1.9.7",
-    "selector-observer": "^2.1.6"
+    "mustache": "^4.1.0",
+    "selector-observer": "^2.1.6",
+    "tslint": "^6.1.3"
   }
 }

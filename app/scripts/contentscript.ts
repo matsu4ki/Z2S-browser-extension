@@ -1,8 +1,6 @@
-import * as dayjs from 'dayjs';
 import {observe} from 'selector-observer';
 import Button from './Button';
-import {sendMessageToSlack, sendToSlack} from './sendToSlack';
-dayjs.locale('ja');
+import {sendMessageToSlack} from './sendToSlack';
 
 const findNameFromDisplayOrInput = () => {
   const name = (() => {
@@ -27,7 +25,7 @@ const setStartButton: Function = (startWorkButtonArea: HTMLElement) => {
   startWorkButton.addEventListener('click', () => {
     console.log('clicked 出勤');
     const userName: string = findNameFromDisplayOrInput();
-    sendMessageToSlack(userName + 'さんが出勤しました！\n' + dayjs().format('YYYY/MM/DD HH:mm:ss dddd'));
+    sendMessageToSlack();
     startWorkButton.setAttribute('disabled', 'disabled');
     startWorkButton.style.cssText += 'border-color:#ddd!important;background-color:#ddd!important;-webkit-box-shadow:none!important;box-shadow:none!important;color:#888!important;cursor:default!important';
   });
@@ -38,11 +36,11 @@ const setEndButton: Function = (endWorkButtonArea: HTMLElement) => {
   endWorkButtonArea.style.flex = '1';
   const endWorkButton = <HTMLButtonElement>Button.cloneNode(true);
   endWorkButton.addEventListener('click', () => {
-      console.log('clicked 退勤');
-      const userName: string = findNameFromDisplayOrInput();
-      sendMessageToSlack(userName + 'さんが退勤しました！\n' + dayjs().format('YYYY/MM/DD HH:mm:ss dddd'));
-      endWorkButton.setAttribute('disabled', 'disabled');
-      endWorkButton.style.cssText += 'border-color:#ddd!important;background-color:#ddd!important;-webkit-box-shadow:none!important;box-shadow:none!important;color:#888!important;cursor:default!important';
+    console.log('clicked 退勤');
+    const userName: string = findNameFromDisplayOrInput();
+    sendMessageToSlack();
+    endWorkButton.setAttribute('disabled', 'disabled');
+    endWorkButton.style.cssText += 'border-color:#ddd!important;background-color:#ddd!important;-webkit-box-shadow:none!important;box-shadow:none!important;color:#888!important;cursor:default!important';
   });
   endWorkButtonArea.appendChild(endWorkButton);
 };
@@ -55,9 +53,9 @@ observe(accountMenu, {
     observe(startWorkButtonArea, {
       add(el) {
         const startWorkButton = el.getElementsByTagName('button')[0];
-        if (startWorkButton.style.visibility === 'visible') {
+        // if (startWorkButton.style.visibility === 'visible') {
           setStartButton(el);
-        }
+        // }
       }
     });
 
@@ -65,9 +63,9 @@ observe(accountMenu, {
     observe(endWorkButtonArea, {
       add(el) {
         const endWorkButton = el.getElementsByTagName('button')[0];
-        if (endWorkButton.style.visibility === 'visible') {
+        // if (endWorkButton.style.visibility === 'visible') {
           setEndButton(el);
-        }
+        // }
       }
     });
   }
