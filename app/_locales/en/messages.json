@@ -1,18 +1,18 @@
 {
   "appName": {
-    "message": "Z二S browser extension",
+    "message": "Z2S",
     "description": "The name of the application"
   },
   "appShortName": {
     "message": "Genies",
-    "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
+    "description": "The short_name is a short version of the app's name."
   },
   "appDescription": {
     "message": "This extension send message to slack from ZAC",
     "description": "The description of the application"
   },
   "browserActionTitle": {
-    "message": "Z二S browser extension",
+    "message": "Z2S",
     "description": "The title of the browser action button"
   }
 }

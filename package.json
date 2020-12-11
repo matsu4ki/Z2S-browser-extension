@@ -1,5 +1,5 @@
 {
-  "name": "z2s-browser-extension",
+  "name": "z2s",
   "private": true,
   "version": "1.0.2",
   "description": "This extension send message to slack from zac",

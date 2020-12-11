@@ -1,4 +1,4 @@
-# Z二S browser extension
+# Z2S
 
 This extension send start/end work message to slack
 

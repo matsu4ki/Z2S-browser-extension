@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "Z二S browser extension",
+    "message": "Z2S",
     "description": "拡張機能の名前です。"
   },
   "appShortName": {
@@ -12,7 +12,7 @@
     "description": "zacから、webhook機能を介してSlackへ通知を送信します。"
   },
   "browserActionTitle": {
-    "message": "Z二S browser extension",
+    "message": "Z2S",
     "description": "Actionボタンのタイトル名です。"
   }
 }
